@@ -5,27 +5,28 @@ import './style.css';
 class Form extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            0: '',
-            1: '',
-            2: '',
-            3: '',
-        };
+        this.state = {};
         this.onInputChange = this.onInputChange.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
     }
 
-    onInputChange(index, event) {
-        console.log(index, event.target.value);
-        this.setState({ [index]: event.target.value });
+    onInputChange(id, event) {
+        // console.log(id, event.target.value);
+        this.setState({ [id]: event.target.value });
+    }
+
+    onSubmit(user, event) {
+        event.preventDefault();
+        this.props.onSubmit(user);
     }
 
     render() {
         return (
-            <form onSubmit={this.props.onSubmit}>
+            <form onSubmit={(e) => this.onSubmit(this.state, e)}>
                 {this.props.inputs.map((input, index) =>
                     <Input
                         key={index}
-                        onChange={(e) => this.onInputChange(index, e)}
+                        onChange={(e) => this.onInputChange(input.id, e)}
                         value={this.state[index]}
                         {...input} />
                 )}

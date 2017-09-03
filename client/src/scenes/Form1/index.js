@@ -5,12 +5,17 @@ import { register } from '../../data/user/api';
 import Form from '../../components/Form';
 // import './style.css';
 
-const Form1 = ({ form1, register, user }) => (
-    <Form inputs={form1} onSubmit={register(user.username, user.password, user.email)} />
+const onFormSubmit = (event) => {
+    event.preventDefault();
+    register()
+}
+
+const Form1 = ({ form, register, user }) => (
+    <Form inputs={form.form1} onSubmit={register} />
 );
 
-const mapStateToProps = ({ form1 }) => ({
-    form1,
+const mapStateToProps = ({ form }) => ({
+    form,
 });
 const mapDispatchToProps = (dispatch) => (
     bindActionCreators({ register }, dispatch)

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const ROOT_URL = 'localhost:5051'
+const ROOT_URL = 'http://localhost:5051'
 
 export const LOGIN = 'LOGIN';
 export const SAVE_FORM = 'SAVE_FORM';

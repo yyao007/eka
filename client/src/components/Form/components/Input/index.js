@@ -9,7 +9,8 @@ const Input = ({ onChange, value, placeholder, id, type }) => (
             id={id}
             placeholder={placeholder}
             value={value}
-            onChange={onChange} />
+            onChange={onChange}
+            name={id} />
     </div>
 );
 
